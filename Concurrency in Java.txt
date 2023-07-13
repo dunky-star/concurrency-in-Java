@@ -1,0 +1,1 @@
+1. A process - is a unit of execution that has its own memory space. Each instance of a JVM runs as a process. 
