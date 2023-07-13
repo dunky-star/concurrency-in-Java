@@ -6,3 +6,8 @@
    has atleast one thread. Infact, just about every Java process also has multiple system threads that handle tasks like memory management,
    and I/O. We, the developers, don't explicitly create and code those threads. Our codes run in the main thread, or in other thread that we 
    explicitly create. 
+   
+   Creating a thread doesn't require as many resources as creating a process. Every thread craeted by a process shares the process's memory
+   and files -> However, this can create problem as well. In addition to the process's memory, or heap, each thread has what's called
+   a THREAD STACK, which is the memory that only that thread can access.    
+   
