@@ -1,1 +1,8 @@
-1. A process - is a unit of execution that has its own memory space. Each instance of a JVM runs as a process. 
+1. A process - is a unit of execution that has its own memory space. Each instance of a JVM runs as a process but isn't true 
+   for all JVM implementations. When we run a Java console app, we're kicking off a process.
+   If one Java app is running and we run another one, each application has its own memory space of HEAP. The heap isn't shared between them.
+   
+2. A Thread - is a unit of execution within a process. Each process can have multiple threads. In Java, every process (or app)
+   has atleast one thread. Infact, just about every Java process also has multiple system threads that handle tasks like memory management,
+   and I/O. We, the developers, don't explicitly create and code those threads. Our codes run in the main thread, or in other thread that we 
+   explicitly create. 
