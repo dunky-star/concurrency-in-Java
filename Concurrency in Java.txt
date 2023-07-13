@@ -30,4 +30,7 @@ download a bit of data, then switch to drawing part of the shape, then switch ba
 more of the shape, etc.
 Concurrency means one task doesn't have to complete before another can begin. Java provides thread related classes so that we can create Java
 co ncurrent applications.
+
+Before we do thread creation, let's understand that when working with threads, we're at the mercy of JVM and the operating system when it comes
+to when threads are scheduled to run.
    
