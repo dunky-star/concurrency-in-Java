@@ -11,3 +11,12 @@
    and files -> However, this can create a big problem as well. In addition to the process's memory, or heap, each thread has what's called
    a THREAD STACK, which is the memory that only that thread can access.    
    
+   So, every Java app runs as a single process, and each process can have a multiple threads. Every process has a heap and every thread has
+   thread stack.
+   
+   Why would we want to use multiple threads in our application?
+   
+   a) We sometimes want to perform a task that is going to take a long time, example, we might want to query a database or fetch data from
+      the internet. We could do this on the main thread but the code within the main thread executes in a linear fashion. The main thread
+	  won't be able to do anything else while waiting for data.
+   
