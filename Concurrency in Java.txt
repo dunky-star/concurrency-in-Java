@@ -21,4 +21,13 @@
 	  won't be able to do anything else while waiting for data. i.e. execution of the main thread will be suspended.
 	  -> To the user, this could appear as if our application died, or is frozen. 
 	b) The second reason as to why we have to use thread is because an API requires us to provide one.
+	
+	
+	
+CONCURRENCY: All these bring us to concurrency, which refers to an application doing more than one thing at a time (the progress can be made
+on more than one task). Let's say that an application wants to download data and draw a shape on the screen. If it's a concurrent app, it can
+download a bit of data, then switch to drawing part of the shape, then switch back to downloading some more data, then switch back to drawing
+more of the shape, etc.
+Concurrency means one task doesn't have to complete before another can begin. Java provides thread related classes so that we can create Java
+co ncurrent applications.
    
