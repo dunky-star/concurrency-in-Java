@@ -19,6 +19,6 @@
 	a) We sometimes want to perform a task that is going to take a long time, example, we might want to query a database or fetch data from
       the internet. We could do this on the main thread but the code within the main thread executes in a linear fashion. The main thread
 	  won't be able to do anything else while waiting for data. i.e. execution of the main thread will be suspended.
-	  -> To the user, this could appear as if our application dies, or is frozen. 
+	  -> To the user, this could appear as if our application died, or is frozen. 
 	b) The second reason as to why we have to use thread is because an API requires us to provide one.
    
