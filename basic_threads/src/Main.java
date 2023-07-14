@@ -6,12 +6,13 @@ public class Main {
         // To invoke the run method in thread1.
         thread1.start();
 
-        new Thread(){
+        // Creating an anonymous thread.
+        new Thread() {
             public void run(){
-                System.out.println("Hello from the anonymous class thread");
+                System.out.println("Hello from the anonymous class thread.");
             }
         }.start();
-        
-        System.out.println("Hello again from the main thread");
+
+        System.out.println("Hello again from the main thread.");
     }
 }
