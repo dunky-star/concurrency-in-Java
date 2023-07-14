@@ -10,7 +10,7 @@ public class Thread1 extends Thread {
         } catch (InterruptedException e) {
             System.out.println(ThreadColor.ANSI_RED + "Another thread woke me up");
             // Return statement to handle the interrupt.
-            return;
+            // return;
         }
         System.out.println(ThreadColor.ANSI_RED + "3 sec have passed and I am awake");
     }
