@@ -24,6 +24,8 @@ public class Main {
             }
         });
         myRunnableThread.start();
+        // Interrupting a thread.
+        thread1.interrupt();
         System.out.println(ThreadColor.ANSI_BLUE + "Hello again from the main thread.");
     }
 }
