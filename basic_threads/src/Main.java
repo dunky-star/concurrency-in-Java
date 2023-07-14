@@ -24,8 +24,8 @@ public class Main {
                 System.out.println(ThreadColor.ANSI_GREEN + "Hello from the anonymous class implementation of run()");
                 // To join a thread without waiting.
                 try {
-                    thread1.join();
-                    System.out.println(ThreadColor.ANSI_RED + "Another thread terminated, so I'm running again.");
+                    thread1.join(3000);
+                    System.out.println(ThreadColor.ANSI_RED + "Another thread terminated, or timed out so I'm running again.");
                 } catch (InterruptedException e){
                     System.out.println(ThreadColor.ANSI_RED + "I couldn't wait after all. I was interrupted");
                 }
