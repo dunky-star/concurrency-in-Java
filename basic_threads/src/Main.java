@@ -13,6 +13,16 @@ public class Main {
             }
         }.start();
 
+        // Another way of creating Thread
+        Thread myRunnableThread = new Thread(new MyRunnable(){
+
+            // Creating anonymous class with Runnable
+            @Override
+            public void run(){
+                System.out.println(ThreadColor.ANSI_GREEN + "Hello from the anonymous class implementation of run()");
+            }
+        });
+        myRunnableThread.start();
         System.out.println(ThreadColor.ANSI_BLUE + "Hello again from the main thread.");
     }
 }
