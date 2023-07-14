@@ -3,6 +3,7 @@ public class Main {
     {
         System.out.println(ThreadColor.ANSI_BLUE + "\nThreads construction in Java!");
         Thread thread1 = new Thread1();
+        thread1.setName("== Thread 1 ==");
         // To invoke the run method in thread1.
         thread1.start();
 
