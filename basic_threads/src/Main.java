@@ -25,8 +25,9 @@ public class Main {
                 // To join a thread without waiting.
                 try {
                     thread1.join();
+                    System.out.println(ThreadColor.ANSI_RED + "Another thread terminated, so I'm running again.");
                 } catch (InterruptedException e){
-                    System.out.println("I couldn't wait after all. I was interrupted");
+                    System.out.println(ThreadColor.ANSI_RED + "I couldn't wait after all. I was interrupted");
                 }
             }
         });
