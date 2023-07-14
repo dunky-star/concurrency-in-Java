@@ -13,6 +13,6 @@ public class Main {
             }
         }.start();
 
-        System.out.println("Hello again from the main thread.");
+        System.out.println(ThreadColor.ANSI_BLUE + "Hello again from the main thread.");
     }
 }
