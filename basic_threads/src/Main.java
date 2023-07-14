@@ -3,5 +3,15 @@ public class Main {
     {
         System.out.println("\nThreads construction in Java!");
         Thread thread1 = new Thread1();
+        // To invoke the run method in thread1.
+        thread1.start();
+
+        new Thread(){
+            public void run(){
+                System.out.println("Hello from the anonymous class thread");
+            }
+        }.start();
+        
+        System.out.println("Hello again from the main thread");
     }
 }
