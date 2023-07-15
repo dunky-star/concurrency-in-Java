@@ -35,5 +35,18 @@ public class Main {
         // Interrupting a thread.
         // thread1.interrupt();
         System.out.println(ThreadColor.ANSI_BLUE + "Hello again from the main thread.");
+
+
+        Countdown countdown = new Countdown();
+
+        CountdownThread t1 = new CountdownThread(countdown);
+        t1.setName("Thread 1");
+        CountdownThread t2 = new CountdownThread(countdown);
+        t2.setName("Thread 2");
+
+        t1.start();
+        t2.start();
     }
+
+
 }
