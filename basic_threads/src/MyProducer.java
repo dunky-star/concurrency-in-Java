@@ -1,11 +1,12 @@
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ArrayBlockingQueue;
 
 class MyProducer implements  Runnable {
-    private final List<String> buffer;
+    private final ArrayBlockingQueue<String> buffer;
     private final String color;
 
-    public MyProducer(List<String> buffer, String color) {
+    public MyProducer(ArrayBlockingQueue<String> buffer, String color) {
         this.buffer = buffer;
         this.color = color;
     }
@@ -17,9 +18,7 @@ class MyProducer implements  Runnable {
         for(String num: nums) {
             try {
                 System.out.println(color + "Adding..." + num);
-                synchronized(buffer) {
-                    buffer.add(num);
-                }
+                buffer.put(num);
 
                 Thread.sleep(random.nextInt(1000));
             } catch(InterruptedException e) {
@@ -27,9 +26,10 @@ class MyProducer implements  Runnable {
             }
         }
 
-        System.out.println(color + "Adding EOF and exiting....");
-        synchronized(buffer) {
-            buffer.add("EOF");
+        System.out.println(color + "Adding EOF and exiting...");
+        try {
+            buffer.put("EOF");
+        } catch(InterruptedException ignored) {
         }
     }
 }

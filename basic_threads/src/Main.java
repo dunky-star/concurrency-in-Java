@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -60,8 +60,8 @@ public class Main {
         (new Thread(new Reader(message))).start();
 
 
-        // Producer - Consumer paradigm && Thread pools.
-        List<String> buffer = new ArrayList<String>();
+        // Producer - Consumer paradigm && Thread pools using ArrayBlockingQueue.
+        ArrayBlockingQueue<String> buffer = new ArrayBlockingQueue<String>(6);
 
         // ExecutorService - Thread pools (To manage thread automatically).
         ExecutorService executorService = Executors.newFixedThreadPool(3);
