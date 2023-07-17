@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
 
@@ -58,15 +60,19 @@ public class Main {
         (new Thread(new Reader(message))).start();
 
 
-        // Producer - Consumer paradigm
+        // Producer - Consumer paradigm && Thread pools.
         List<String> buffer = new ArrayList<String>();
+
+        // ExecutorService - Thread pools (To manage thread automatically).
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
+
         MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_YELLOW);
         MyConsumer consumer1 = new MyConsumer(buffer, ThreadColor.ANSI_PURPLE);
         MyConsumer consumer2 = new MyConsumer(buffer, ThreadColor.ANSI_CYAN);
 
-        new Thread(producer).start();
-        new Thread(consumer1).start();
-        new Thread(consumer2).start();
+        executorService.execute(producer);
+        executorService.execute(consumer1);
+        executorService.execute(consumer2);
     }
 
 
