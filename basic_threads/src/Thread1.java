@@ -12,7 +12,7 @@ public class Thread1 extends Thread {
             // Return statement to handle the interrupt.
             // return;
         }
-        System.out.println(ThreadColor.ANSI_RED + "5have passed and I am awake");
+        System.out.println(ThreadColor.ANSI_RED + "5 sec have passed and I am awake");
     }
 
 }
