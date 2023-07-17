@@ -1,4 +1,6 @@
 public class Main {
+
+    public static final String EOF = "EOF";
     public static void main(String[] args)
     {
         System.out.println(ThreadColor.ANSI_BLUE + "\nThreads construction in Java!");
