@@ -1,8 +1,8 @@
 import java.util.List;
 
 class MyConsumer implements Runnable {
-    private List<String> buffer;
-    private String color;
+    private final List<String> buffer;
+    private final String color;
 
     public MyConsumer(List<String> buffer, String color) {
         this.buffer = buffer;

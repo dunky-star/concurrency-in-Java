@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static final String EOF = "EOF";
@@ -53,6 +56,17 @@ public class Main {
         Message message = new Message();
         (new Thread(new Writer(message))).start();
         (new Thread(new Reader(message))).start();
+
+
+        // Producer - Consumer paradigm
+        List<String> buffer = new ArrayList<String>();
+        MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_YELLOW);
+        MyConsumer consumer1 = new MyConsumer(buffer, ThreadColor.ANSI_PURPLE);
+        MyConsumer consumer2 = new MyConsumer(buffer, ThreadColor.ANSI_CYAN);
+
+        new Thread(producer).start();
+        new Thread(consumer1).start();
+        new Thread(consumer2).start();
     }
 
 
