@@ -48,6 +48,9 @@ public class Main {
         t2.start();
 
         // Implementing Deadlocks,-wait,-notify-and-notifyAll
+        Message message = new Message();
+        (new Thread(new Writer(message))).start();
+        (new Thread(new Reader(message))).start();
     }
 
 

@@ -20,7 +20,7 @@ class Writer implements Runnable {
         for(int i=0; i<messages.length; i++) {
             message.write(messages[i]);
             try {
-                Thread.sleep(random.nextInt(2000));
+                Thread.sleep(random.nextInt(10000));
             } catch(InterruptedException ignored) {
 
             }

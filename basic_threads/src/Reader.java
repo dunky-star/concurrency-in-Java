@@ -13,7 +13,7 @@ class Reader implements Runnable {
             latestMessage = message.read()) {
             System.out.println(latestMessage);
             try {
-                Thread.sleep(random.nextInt(2000));
+                Thread.sleep(random.nextInt(10000));
             } catch(InterruptedException ignored) {
 
             }
