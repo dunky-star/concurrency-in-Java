@@ -1,5 +1,9 @@
 package challenge1;
 
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * Challenge 1: Create and start Threads
  * We could have two people using a joint bank account at the same time. Create and start
@@ -12,21 +16,57 @@ package challenge1;
 public class BankAccount {
     private double balance;
     private final String accountNumber;
+    private final Lock lock;
 
-    public BankAccount(String accountNumber, double initialBalance){
+    public BankAccount(String accountNumber, double initialBalance) {
         this.balance = initialBalance;
         this.accountNumber = accountNumber;
+        this.lock = new ReentrantLock(); // Initialize re-entrant lock.
     }
 
+    //    public  void deposit(double amount) {
+    //      synchronized(this){
+    //        balance += amount;
+    //      }
+    //    }
+    //
+    //    public synchronized void withdraw(double amount) {
+    //      synchronized(this){
+    //        balance -= amount;
+    //      }
+    //    }
+
     public void deposit(double amount){
-        synchronized(this){
-            balance += amount;
+        try {
+            if(lock.tryLock(1000, TimeUnit.MILLISECONDS)) {
+                try {
+                    balance += amount;
+                } finally {
+                    lock.unlock();
+                }
+            } else {
+                System.out.println("Could not get the lock");
+            }
+
+        } catch(InterruptedException e) {
+            // do something here
         }
     }
 
     public void withdraw(double amount){
-        synchronized(this){
-            balance -= amount;
+        try {
+            if(lock.tryLock(1000, TimeUnit.MILLISECONDS)) {
+                try {
+                    balance -= amount;
+                } finally {
+                    lock.unlock();
+                }
+            } else {
+                System.out.println("Could not get the lock");
+            }
+
+        } catch(InterruptedException e) {
+            // do something here
         }
     }
 
