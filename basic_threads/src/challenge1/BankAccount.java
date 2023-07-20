@@ -11,16 +11,30 @@ package challenge1;
 
 public class BankAccount {
     private double balance;
+    private final String accountNumber;
 
     public BankAccount(String accountNumber, double initialBalance){
         this.balance = initialBalance;
+        this.accountNumber = accountNumber;
     }
 
     public void deposit(double amount){
-        balance += amount;
+        synchronized(this){
+            balance += amount;
+        }
     }
 
-    public void withdrawal(double amount){
-        balance -= amount;
+    public void withdraw(double amount){
+        synchronized(this){
+            balance -= amount;
+        }
+    }
+
+    public String getAccountNumber(){
+        return accountNumber;
+    }
+
+    public void printAccountNumber(){
+        System.out.println("Account number = " + accountNumber);
     }
 }

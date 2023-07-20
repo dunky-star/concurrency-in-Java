@@ -100,7 +100,7 @@ public class Main {
             @Override
             public void run() {
                 account.deposit(300.00);
-//              account.withdrawal(50.0);
+                account.withdraw(50.00);
             }
         });
 
@@ -108,7 +108,7 @@ public class Main {
             @Override
             public void run() {
                 account.deposit(203.75);
-//              account.withdrawal(100);
+                account.withdraw(100.00);
             }
         });
 
