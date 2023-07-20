@@ -14,30 +14,38 @@ public class BankAccountTransfer {
 
     public boolean withdraw(double amount) {
         if (lock.tryLock()) {
-            try {
-                // Simulate database access
-                Thread.sleep(100);
+            try{
+                try {
+                    // Simulate database access
+                    Thread.sleep(100);
+                }
+                catch (InterruptedException ignored) {
+                }
+                balance -= amount;
+                System.out.printf("%s: Withdrew %f\n", Thread.currentThread().getName(), amount);
+                return true;
+            }finally{
+                lock.unlock();
             }
-            catch (InterruptedException ignored) {
-            }
-            balance -= amount;
-            System.out.printf("%s: Withdrew %f\n", Thread.currentThread().getName(), amount);
-            return true;
         }
         return false;
     }
 
     public boolean deposit(double amount) {
         if (lock.tryLock()) {
-            try {
-                // Simulate database access
-                Thread.sleep(100);
-            }
-            catch (InterruptedException ignored) {
-            }
-            balance += amount;
-            System.out.printf("%s: Deposited %f\n", Thread.currentThread().getName(), amount);
-            return true;
+           try{
+               try {
+                   // Simulate database access
+                   Thread.sleep(100);
+               }
+               catch (InterruptedException ignored) {
+               }
+               balance += amount;
+               System.out.printf("%s: Deposited %f\n", Thread.currentThread().getName(), amount);
+               return true;
+           }finally{
+               lock.unlock();
+           }
         }
         return false;
     }
