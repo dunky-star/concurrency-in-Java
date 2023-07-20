@@ -9,11 +9,17 @@ package challenge1;
  */
 
 public class BankAccount {
-    private final double balance;
-    private final String accNumber;
+    private double balance;
 
-    public BankAccount(double doubleBalance, String accNumber){
-        this.balance = doubleBalance;
-        this.accNumber = accNumber;
+    public BankAccount(String accountNumber, double initialBalance){
+        this.balance = initialBalance;
+    }
+
+    public void deposit(double amount){
+        balance += amount;
+    }
+
+    public void withdrawal(double amount){
+        balance -= amount;
     }
 }
