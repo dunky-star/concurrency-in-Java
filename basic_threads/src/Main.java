@@ -81,20 +81,36 @@ public class Main {
         // Challenge 1: Joint Bank Account
         BankAccount account = new BankAccount("903-60402", 1000.00);
 
-        Thread thThread1 = new Thread(){
-            public void run(){
+//        Thread thThread1 = new Thread(){
+//            public void run(){
+//                account.deposit(300.00);
+//                account.withdrawal(50.0);
+//            }
+//        };
+//
+//        Thread thThread2 = new Thread(){
+//            public void run(){
+//                account.deposit(203.75);
+//                account.withdrawal(100);
+//            }
+//
+//        };
+
+        Thread thThread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
                 account.deposit(300.00);
-                account.withdrawal(50.0);
+//              account.withdrawal(50.0);
             }
-        };
+        });
 
-        Thread thThread2 = new Thread(){
-            public void run(){
+        Thread thThread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
                 account.deposit(203.75);
-                account.withdrawal(100);
+//              account.withdrawal(100);
             }
-
-        };
+        });
 
         thThread1.start();
         thThread2.start();
